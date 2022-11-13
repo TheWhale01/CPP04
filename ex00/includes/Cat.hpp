@@ -11,6 +11,20 @@ class Cat: public Animal
 		~Cat(void);
 
 		Cat &operator=(Cat const &rhs);
+
+		void makeSound(void) const;
+};
+
+class WrongCat: public WrongAnimal
+{
+	public:
+		WrongCat(void);
+		WrongCat(WrongCat const &rhs);
+		~WrongCat(void);
+
+		WrongCat &operator=(WrongCat const &rhs);
+
+		void makeSound(void) const;
 };
 
 #endif
