@@ -1,5 +1,4 @@
 #pragma once
-
 #include "AMateria.hpp"
 
 class Ice: public AMateria
@@ -10,6 +9,9 @@ class Ice: public AMateria
 		~Ice(void);
 
 		Ice &operator=(Ice const &rhs);
+
+		AMateria *clone() const;
+		void use(ICharacter &target);
 };
 
 class Cure: public AMateria
@@ -20,4 +22,7 @@ class Cure: public AMateria
 		~Cure(void);
 
 		Cure &operator=(Cure const &rhs);
+
+		AMateria *clone() const;
+		void use(ICharacter &target);
 };

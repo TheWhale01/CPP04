@@ -1,6 +1,7 @@
 #pragma once
-
 #include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {
@@ -16,12 +17,19 @@ class Character: public ICharacter
 {
 	private:
 		std::string _name;
-		AMateria *_inventory = NULL;
+		static int _inv_index;
+		AMateria *_inventory[4];
 
 	public:
 		Character(void);
 		Character(Character const &rhs);
 		Character(std::string const &name);
+		virtual ~Character(void);
 
 		Character &operator=(Character const &rhs);
+
+		std::string const & getName() const;
+		void equip(AMateria* m);
+		void unequip(int idx);
+		void use(int idx, ICharacter& target);
 };

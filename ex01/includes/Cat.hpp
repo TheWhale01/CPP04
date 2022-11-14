@@ -18,7 +18,7 @@ class Cat: public Animal
 		std::string getIdea(int const index) const;
 
 	private:
-		Brain *brain = NULL;
+		Brain *brain;
 };
 
 #endif

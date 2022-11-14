@@ -17,7 +17,7 @@ class Dog: public Animal
 		void setIdea(int const index, std::string const idea);
 	
 	private:
-		Brain *brain = NULL;
+		Brain *brain;
 };
 
 #endif
