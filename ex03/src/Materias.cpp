@@ -5,7 +5,7 @@ Ice::Ice(void)
 	return ;
 }
 
-Ice::Ice(Ice const &rhs)
+Ice::Ice(Ice const &rhs): AMateria(rhs)
 {
 	*this = rhs;
 	return ;
@@ -18,9 +18,7 @@ Ice::~Ice(void)
 
 Ice &Ice::operator=(Ice const &rhs)
 {
-	if (this == &rhs)
-		return (*this);
-	this->type = rhs.type;
+	(void)rhs;
 	return (*this);
 }
 
@@ -43,7 +41,7 @@ Cure::Cure(void)
 	return ;
 }
 
-Cure::Cure(Cure const &rhs)
+Cure::Cure(Cure const &rhs): AMateria(rhs)
 {
 	*this = rhs;
 	return ;
@@ -56,9 +54,7 @@ Cure::~Cure(void)
 
 Cure &Cure::operator=(Cure const &rhs)
 {
-	if (this == &rhs)
-		return (*this);
-	this->type = rhs.type;
+	(void)rhs;
 	return (*this);
 }
 

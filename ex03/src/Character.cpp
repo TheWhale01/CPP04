@@ -59,17 +59,24 @@ void Character::equip(AMateria *m)
 		std::cout << "Inventory full." << std::endl;
 		return ;
 	}
+	if (!m)
+	{
+		std::cout << "Null materia type. Can't equip." << std::endl;
+		return ;
+	}
+	if (this->_inventory[this->_inv_index])
+		delete this->_inventory[this->_inv_index];
 	this->_inventory[this->_inv_index++] = m;
 }
 
 void Character::unequip(int idx)
 {
-	if (idx >= 4 || idx < 0)
+	if (idx >= this->_inv_index || idx < 0)
 	{
-		std::cout << "Index not in range (0, 4)" << std::endl;
+		std::cout << "Index not in range (0, " << this->_inv_index << ")" << std::endl;
 		return ;
 	}
-	
+	this->_inv_index--;
 }
 
 void Character::use(int idx, ICharacter& target)
