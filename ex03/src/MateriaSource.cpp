@@ -1,9 +1,7 @@
 #include "Materias.hpp"
 #include "MateriaSource.hpp"
 
-int MateriaSource::_index;
-
-MateriaSource::MateriaSource(void)
+MateriaSource::MateriaSource(void): _index(0)
 {
 	return ;
 }
@@ -31,6 +29,7 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &rhs)
 		else
 			this->_tmp[i] = new Cure();
 	}
+	this->_index = rhs._index;
 	return (*this);
 }
 

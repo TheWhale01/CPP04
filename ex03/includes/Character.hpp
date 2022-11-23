@@ -16,9 +16,11 @@ class ICharacter
 class Character: public ICharacter
 {
 	private:
+		static int const _inv_size = 4;
+		AMateria *_inventory[_inv_size];
 		std::string _name;
-		static int _inv_index;
-		AMateria *_inventory[4];
+
+		int _getNextIndex(void) const;
 
 	public:
 		Character(void);

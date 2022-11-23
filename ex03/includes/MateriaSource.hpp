@@ -23,5 +23,5 @@ class MateriaSource: public IMateriaSource
 
 	private:
 		AMateria *_tmp[4];
-		static int _index;
+		int _index;
 };
