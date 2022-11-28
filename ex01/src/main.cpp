@@ -22,7 +22,7 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	DEEP COPY
+	// DEEP COPY
 	Cat cat;
 	Cat copy;
 
@@ -32,8 +32,10 @@ int main(void)
 	std::cout << "Copy: " << copy.getIdea(1) << std::endl;
 	copy.setIdea(1, "salut !");
 	std::cout << "Original: " << cat.getIdea(1) << std::endl;
-	std::cout << "Copy: " << copy.getIdea(1) << std::endl;
-	Animal cat = Cat();
-	cat.makeSound();
+	std::cout << "Copy: " << copy.getIdea(1) << std::endl << std::endl;
+	Animal *new_cat = new Cat();
+	new_cat->makeSound();
+	std::cout << std::endl;
+	delete new_cat;
 	return 0;
 }
