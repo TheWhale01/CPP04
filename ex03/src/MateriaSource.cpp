@@ -14,6 +14,8 @@ MateriaSource::MateriaSource(MateriaSource const &rhs)
 
 MateriaSource::~MateriaSource(void)
 {
+	for (int i = 0; i < this->_index; i++)
+		delete this->_tmp[i];
 	return ;
 }
 
@@ -35,14 +37,34 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &rhs)
 
 void MateriaSource::learnMateria(AMateria *m)
 {
+	if (!m)
+		return ;
 	if (this->_index == 4)
-		this->_index = 0;
+	{
+		delete m;
+		return ;
+	}
+	for (int i = 0; i < this->_index; i++)
+	{
+		if (this->_tmp[i]->getType() == m->getType())
+		{
+			delete m;
+			return ;
+		}
+	}
 	this->_tmp[this->_index++] = m;
-	delete m;
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type)
 {
+	bool create;
+
+	create = false;
+	for (int i = 0; i < this->_index; i++)
+		if (this->_tmp[i]->getType() == type)
+			create =  true;
+	if (!create)
+		return (NULL);
 	if (type == "ice")
 		return (new Ice());
 	else if (type == "cure")

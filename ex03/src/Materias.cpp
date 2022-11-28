@@ -2,6 +2,7 @@
 
 Ice::Ice(void)
 {
+	this->type = "ice";
 	return ;
 }
 
@@ -38,6 +39,7 @@ void Ice::use(ICharacter &target)
 
 Cure::Cure(void)
 {
+	this->type = "cure";
 	return ;
 }
 
