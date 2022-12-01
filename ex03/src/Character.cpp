@@ -10,6 +10,8 @@ Character::Character(void): _name("default")
 
 Character::Character(Character const &rhs)
 {
+	for (int i = 0; i < this->_inv_size; i++)
+		this->_inventory[i] = NULL;
 	*this = rhs;
 	return ;
 }
@@ -36,11 +38,10 @@ Character &Character::operator=(Character const &rhs)
 	this->_name = rhs._name;
 	for (int i = 0; i < this->_inv_size; i++)
 	{
-		delete this->_inventory[i];
-		if (rhs._inventory[i]->getType() == "ice")
-			this->_inventory[i] = new Ice();
-		else
-			this->_inventory[i] = new Cure();
+		if (this->_inventory[i])
+			delete this->_inventory[i];
+		if (rhs._inventory[i])
+			this->_inventory[i] = rhs._inventory[i]->clone();
 	}
 	return (*this);
 }
@@ -63,7 +64,6 @@ void Character::equip(AMateria *m)
 	if (this->_getNextIndex() == this->_inv_size)
 	{
 		std::cout << "Inventory full." << std::endl;
-		delete m;
 		return ;
 	}
 	if (!m)
