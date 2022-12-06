@@ -30,6 +30,8 @@ Dog &Dog::operator=(Dog const &rhs)
 	if (this->brain)
 		delete this->brain;
 	this->brain = new Brain();
+		for (size_t i = 0; i < 100; i++)
+		this->brain->ideas[i] = rhs.brain->ideas[i];
 	return (*this);
 }
 
