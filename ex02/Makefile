@@ -4,7 +4,7 @@ OBJ_DIR=obj/
 SRC_DIR=src/
 INCLUDES=includes/
 CFLAGS=-Wall -Wextra -Werror -I $(INCLUDES) -g -std=c++98
-CFILES=$(addprefix $(SRC_DIR), main.cpp Dog.cpp Cat.cpp Animal.cpp Brain.cpp AAnimal.cpp)
+CFILES=$(addprefix $(SRC_DIR), main.cpp Dog.cpp Cat.cpp Brain.cpp AAnimal.cpp)
 OBJS=$(patsubst $(SRC_DIR)%.cpp, $(OBJ_DIR)%.o, $(CFILES))
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
